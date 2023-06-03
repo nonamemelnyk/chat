@@ -1,0 +1,63 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="melnyk (generated)" id="1685726381074-5">
+        <createTable tableName="chat">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="chatPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="melnyk (generated)" id="1685726381074-6">
+        <createTable tableName="chat_user">
+            <column name="chat_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="chat_userPK"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="chat_userPK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="melnyk (generated)" id="1685726381074-7">
+        <createTable tableName="message">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="messagePK"/>
+            </column>
+            <column name="date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="text" type="VARCHAR(255)"/>
+            <column name="chat_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_from_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="melnyk (generated)" id="1685726381074-8">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="chat_user" constraintName="FK3my5637ob80l32xwbdgrtvms" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="user" validate="true"/>
+    </changeSet>
+    <changeSet author="melnyk (generated)" id="1685726381074-9">
+        <addForeignKeyConstraint baseColumnNames="chat_id" baseTableName="chat_user" constraintName="FKd5rjaiv0u3482r2pu22ky6h1v" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="chat" validate="true"/>
+    </changeSet>
+    <changeSet author="melnyk (generated)" id="1685726381074-10">
+        <addForeignKeyConstraint baseColumnNames="user_from_id" baseTableName="message" constraintName="FKl7dgrlqwqi46w7baux9skiuec" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="user" validate="true"/>
+    </changeSet>
+    <changeSet author="melnyk (generated)" id="1685726381074-11">
+        <addForeignKeyConstraint baseColumnNames="chat_id" baseTableName="message" constraintName="FKmejd0ykokrbuekwwgd5a5xt8a" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="chat" validate="true"/>
+    </changeSet>
+
+
+
+    <changeSet author="melnyk (generated)" id="1685726381074-1">
+        <modifyDataType columnName="id" newDataType="bigint" tableName="user"/>
+    </changeSet>
+    <changeSet author="melnyk (generated)" id="1685726381074-2">
+        <modifyDataType columnName="login" newDataType="varchar(255)" tableName="user"/>
+    </changeSet>
+    <changeSet author="melnyk (generated)" id="1685726381074-3">
+        <modifyDataType columnName="name" newDataType="varchar(255)" tableName="user"/>
+    </changeSet>
+    <changeSet author="melnyk (generated)" id="1685726381074-4">
+        <modifyDataType columnName="password" newDataType="varchar(255)" tableName="user"/>
+    </changeSet>
+</databaseChangeLog>
