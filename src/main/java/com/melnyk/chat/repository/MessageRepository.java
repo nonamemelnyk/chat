@@ -1,6 +1,6 @@
 package com.melnyk.chat.repository;
 
-import com.melnyk.chat.model.Message;
+import com.melnyk.chat.model.domain.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

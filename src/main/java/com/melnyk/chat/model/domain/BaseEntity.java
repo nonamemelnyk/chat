@@ -1,4 +1,4 @@
-package com.melnyk.chat.model;
+package com.melnyk.chat.model.domain;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

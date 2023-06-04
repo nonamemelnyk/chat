@@ -34,10 +34,21 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
-//        registry.addViewController("/auth").setViewName("login");
-        registry.addViewController("/news").setViewName("news");
         registry.addViewController("/reg").setViewName("registration");
         registry.addViewController("/admin").setViewName("admin");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
+
+
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/**")
+//                .allowedOriginPatterns("*")
+////                .allowedOrigins("*")
+//                .allowedMethods("PUT", "DELETE", "GET", "POST", "DELETE", "OPTIONS")
+//                .allowedHeaders("*")
+////                .exposedHeaders("header1", "header2")
+//                .allowCredentials(true).maxAge(3600)
+//        ;
+//    }
 }

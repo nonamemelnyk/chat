@@ -1,4 +1,4 @@
-package com.melnyk.chat.model;
+package com.melnyk.chat.model.domain;
 
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
@@ -19,7 +19,7 @@ public class Chat extends BaseEntity {
 
     private String name;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany
     @JoinTable(
             name = "chat_user",
             joinColumns = { @JoinColumn(name = "chat_id") },

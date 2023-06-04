@@ -1,7 +1,6 @@
 package com.melnyk.chat.service.security;
 
-import com.melnyk.chat.model.User;
-import com.melnyk.chat.repository.UserRepository;
+import com.melnyk.chat.model.domain.User;
 import com.melnyk.chat.service.UserService;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

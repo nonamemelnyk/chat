@@ -1,10 +1,7 @@
 package com.melnyk.chat.service;
 
-import com.melnyk.chat.model.Chat;
-import com.melnyk.chat.model.Message;
-import com.melnyk.chat.repository.ChatRepository;
+import com.melnyk.chat.model.domain.Message;
 import com.melnyk.chat.repository.MessageRepository;
-import com.melnyk.chat.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

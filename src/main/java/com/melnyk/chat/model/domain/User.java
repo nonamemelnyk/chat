@@ -1,4 +1,4 @@
-package com.melnyk.chat.model;
+package com.melnyk.chat.model.domain;
 
 import com.melnyk.chat.config.enums.UserRoles;
 import jakarta.persistence.*;

@@ -36,14 +36,15 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http
-                .cors().and().csrf().disable()
+//                .cors().and()
+                .csrf().disable()
                 .authorizeHttpRequests()
 //                    .requestMatchers("/reg").hasRole("ROLE_ANONYMOUS")
-                    .requestMatchers("/", "news", "/resources/**").permitAll()
-                    .requestMatchers("/admin/**").hasRole("ADMIN")
+                    .requestMatchers("/", "/resources/**").permitAll()
+//                    .requestMatchers("/api/admin/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
                 .and()
-                .formLogin().defaultSuccessUrl("/news")
+                .formLogin().defaultSuccessUrl("/")
                 .and()
                 .httpBasic();
         ;
@@ -63,5 +64,4 @@ public class WebSecurityConfig {
 //        manager.createUser(User.withDefaultPasswordEncoder().username("admin").password("admin").roles("ADMIN").build());
 //        return manager;
 //    }
-
 }

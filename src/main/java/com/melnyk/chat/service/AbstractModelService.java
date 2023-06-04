@@ -1,14 +1,8 @@
 package com.melnyk.chat.service;
 
-import com.melnyk.chat.model.User;
-import com.melnyk.chat.repository.UserRepository;
-import lombok.Getter;
-import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 import java.util.Optional;

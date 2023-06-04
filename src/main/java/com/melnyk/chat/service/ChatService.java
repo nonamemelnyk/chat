@@ -1,16 +1,15 @@
 package com.melnyk.chat.service;
 
-import com.melnyk.chat.model.Chat;
-import com.melnyk.chat.model.User;
+import com.melnyk.chat.model.domain.Chat;
+import com.melnyk.chat.model.domain.User;
 import com.melnyk.chat.repository.ChatRepository;
-import com.melnyk.chat.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
 @Service
-public class ChatService extends AbstractModelService<Chat, Long>{
+public class ChatService extends AbstractModelService<Chat, Long> {
 
     private final ChatRepository repository;
 
@@ -26,5 +25,10 @@ public class ChatService extends AbstractModelService<Chat, Long>{
     public List<Chat> list() {
         return repository.findAll();
     }
+
+    public List<Chat> findAllByUser(User user) {
+        return repository.findAllByUsersContains(user);
+    }
+
 }
 
