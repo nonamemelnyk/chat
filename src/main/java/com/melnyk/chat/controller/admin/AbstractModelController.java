@@ -11,19 +11,21 @@ import java.util.Map;
 
 public abstract class AbstractModelController<T, ID> {
 
-    @Getter
-    private final AbstractModelService<T, ID> modelService;
+//    @Getter
+//    private AbstractModelService<T, ID> modelService;
 
-    protected AbstractModelController(AbstractModelService<T, ID> modelService) {
-        this.modelService = modelService;
-    }
+    public abstract AbstractModelService<T, ID> getModelService();
+
+//    protected AbstractModelController(AbstractModelService<T, ID> modelService) {
+//        this.modelService = modelService;
+//    }
 
     @RequestMapping(
             method = {RequestMethod.GET}
     )
     @ResponseBody
     public List<T> readList(@RequestParam(value = "ids",required = false) List<ID> ids, HttpServletRequest request, @RequestHeader Map<String, String> header) {
-        return modelService.findAllById(ids);
+        return getModelService().findAllById(ids);
     }
 
     @RequestMapping(
@@ -32,7 +34,7 @@ public abstract class AbstractModelController<T, ID> {
     )
     @ResponseBody
     public ResponseEntity<T> read(@PathVariable ID id, HttpServletRequest request, @RequestHeader Map<String, String> header) {
-        return ResponseEntity.ok(modelService.findById(id).orElse(null));
+        return ResponseEntity.ok(getModelService().findById(id).orElse(null));
     }
 
     @RequestMapping(
@@ -40,7 +42,7 @@ public abstract class AbstractModelController<T, ID> {
     )
     @ResponseBody
     public ResponseEntity<T> save(@RequestBody T dto, HttpServletRequest request, @RequestHeader Map<String, String> header) {
-        return ResponseEntity.ok(modelService.save(dto));
+        return ResponseEntity.ok(getModelService().save(dto));
     }
 
 }

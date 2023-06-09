@@ -14,7 +14,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>chat</name>
     <description>chat</description>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>20</java.version>

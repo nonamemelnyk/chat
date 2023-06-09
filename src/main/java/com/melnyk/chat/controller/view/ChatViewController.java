@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @AllArgsConstructor
 public class ChatViewController {
 
-    private final ChatService chatService;
-    private final UserService userService;
+    private ChatService chatService;
+    private UserService userService;
 
     @GetMapping("/chats")
     public String viewChats(Model model, Authentication authentication) {

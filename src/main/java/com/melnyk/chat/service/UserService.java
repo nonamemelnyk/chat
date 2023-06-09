@@ -10,7 +10,7 @@ import java.util.Optional;
 @Service
 public class UserService extends AbstractModelService<User, Long>{
 
-    private final UserRepository repository;
+    private UserRepository repository;
 
     public UserService(UserRepository repository) {
         this.repository = repository;

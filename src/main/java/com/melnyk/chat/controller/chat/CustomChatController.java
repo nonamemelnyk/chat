@@ -26,10 +26,10 @@ import java.util.Date;
 @AllArgsConstructor
 public class CustomChatController {
 
-    private final SimpMessagingTemplate messagingTemplate;
-    private final MessageService messageService;
-    private final ChatService chatService;
-    private final UserService userService;
+    private SimpMessagingTemplate messagingTemplate;
+    private MessageService messageService;
+    private ChatService chatService;
+    private UserService userService;
 
 
     @MessageMapping("/chat/{chatId}")

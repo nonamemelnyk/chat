@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public class MessageService extends AbstractModelService<Message, Long>{
-    private final MessageRepository repository;
+    private MessageRepository repository;
 
     public MessageService(MessageRepository repository) {
         this.repository = repository;
